@@ -1,3 +1,1 @@
-## Yo, I'm a Readme
-
-You should probably update me so people looking at your code have an idea what it is being used for :)
+This is a simple daily todo app that will allow you to keep track of all the things you need to remember throughout the day. 
