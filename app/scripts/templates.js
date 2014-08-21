@@ -1,8 +1,18 @@
 var itemsTmpl = [
   "<% _.each(items, function(element, index, list) { %>",
-  "<p data-itemid=\"<%= element._id %>\">",
-  "<input type=\"text\" class=\"item\" placeholder=\" <%= element.content %> \" />",
-  "<button class=\"destroy\">Delete</button>",
+  "<div class=\"itemWrapper active\">",
+  "<div class=\"itemContainer \" data-itemid=\"<%= element._id %>\">",
+  "<i class=\"fa fa-check status\"></i>",
+  "<p class=\"itemText\">",
+  "<%= element.content %>",
   "</p>",
+  "<button class=\"destroy\">Delete</button>",
+  "</div>",
+  "<div class=\"updateContainer hide\">",
+  "<form action=\"\" class=\"update\">",
+  "<input type=\"text\" class=\"updateEntry\" placeholder=\"<%= element.content %>\" />",
+  "</form>",
+  "</div>",
+  "</div>",
   "<% }); %>"
 ].join("\n");

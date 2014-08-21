@@ -17,7 +17,7 @@ var todos = {
   },
 
   initStyling: function(){
-
+    todos.getItems();
   },
 
   initEvents: function(){
@@ -25,22 +25,76 @@ var todos = {
     console.log('in the initEvents function')
 
     $(".listContainer").on("submit", ".submit", function (event) {
+
       event.preventDefault();
       console.log('you clicked me');
       var newItem = {
         content: $(".todoEntry").val(),
       };
-
       todos.createItem(newItem);
+      $('.todoEntry').val('');
 
     });
 
     $(".container").on("click", ".destroy", function (event) {
+
       event.preventDefault();
-      var itemId = $(this).closest("p").data("itemid");
+      var itemId = $(this).closest("div").data("itemid");
       console.log(itemId);
       todos.deleteItem(itemId);
+
     });
+
+    $(".container").on("dblclick", ".itemText", function (event) {
+
+      event.preventDefault();
+      $(this).closest('.itemContainer').addClass('hide');
+      $(this).closest('.itemWrapper').find('.updateContainer').removeClass('hide');
+
+    });
+
+    $(".container").on("submit", ".update", function (event) {
+
+      event.preventDefault();
+      var itemId = $(this).closest(".itemWrapper").find('.itemContainer').data("itemid");
+      var updatedItem = {
+        content:$(this).find(".updateEntry").val(),
+      };
+      console.log(itemId);
+      console.log(updatedItem);
+      todos.updateItem(itemId, updatedItem);
+
+    $(this).closest(".updateContainer").addClass("hide");
+    $(this).closest(".itemWrapper").find(".itemContainer").removeClass('hide');
+
+    });
+
+    $(".container").on('click', '.status', function(event){
+      event.preventDefault();
+      $(this).closest('.itemWrapper').toggleClass('completed').toggleClass('active');
+
+    });
+
+    $(".container").on('click', '.all', function(event){
+
+      event.preventDefault();
+      $(this).closest('.container').find('.itemWrapper').removeClass('hide');
+    });
+
+    $(".container").on('click', '.showActive', function(event){
+
+      event.preventDefault();
+      $(this).closest('.container').find('.itemWrapper').removeClass('hide');
+      $(this).closest('.container').find('.completed').addClass('hide');
+    });
+
+    $(".container").on('click', '.showComplete', function(event){
+
+      event.preventDefault();
+      $(this).closest('.container').find('.itemWrapper').removeClass('hide');
+      $(this).closest('.container').find('.active').addClass('hide');
+    });
+
   },
 
   render: function(template, data, $el){

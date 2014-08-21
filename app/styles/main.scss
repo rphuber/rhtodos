@@ -1,5 +1,4 @@
 
-// Custom Styles
 body {
   background: #fafafa;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -8,7 +7,6 @@ body {
 
 .container {
   margin-top: 50px;
-  text-align: center;
   width:80%;
   margin-left: auto;
   margin-right: auto;
@@ -32,5 +30,81 @@ li {
 }
 
 .todoEntry {
-  width: 100%;
+  vertical-align: middle;
+  width: 90%;
+  height: 32px;
+}
+
+
+i {
+  background-color:white;
+  vertical-align: middle;
+  height:32px;
+  width:32px;
+}
+
+.submit, .update {
+  background-color: white;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+input {
+  border: none;
+  padding:0;
+}
+
+p {
+  display: inline-block;
+  width: 80%;
+}
+
+.itemList {
+  padding:0;
+  margin:0;
+  background-color:white;
+}
+
+.itemContainer {
+  padding-left:10px;
+  border-top: 1px dotted grey;
+}
+
+.hide {
+  display:none;
+}
+
+.updateContainer {
+  margin-left: 46px;
+}
+
+.completed {
+  p {
+    text-decoration: line-through;
+  }
+  i {
+    color: green;
+  }
+}
+
+footer {
+  text-align:center;
+
+  ul {
+    display: inline-block;
+
+    li {
+      text-decoration: none;
+      display: inline-block;
+
+      a {
+        text-decoration:none;
+        color: black;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+
+    }
+  }
 }
